@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark, .dark *));
+
+@theme {
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: light;
+  --bw-canvas: #F4F7F5;
+  --bw-surface: #FFFFFF;
+  --bw-surface-subtle: #F6F9F7;
+  --bw-border: #DCE4DF;
+  --bw-ink: #11221C;
+  --bw-accent: #165B43;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bw-canvas: #0A110E;
+  --bw-surface: #111C17;
+  --bw-surface-subtle: #16251F;
+  --bw-border: #20332B;
+  --bw-ink: #ECF4F0;
+  --bw-accent: #34D399;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--bw-ink);
+    background-color: var(--bw-canvas);
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--bw-accent);
+    outline-offset: 2px;
+  }
+
+  html.dark input,
+  html.dark select,
+  html.dark textarea {
+    color-scheme: dark;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Cohesive Forest-Obsidian Dark Mode fallback tokens inside @layer utilities
+ * Specificity (0,1,0) beats light base utilities while yielding cleanly to explicit dark:* overrides (0,2,0).
+ */
+@layer utilities {
+  :where(.dark) .bg-white {
+    background-color: #111C17;
+  }
+  :where(.dark) .bg-\[\#F7F8F6\] {
+    background-color: #0A110E;
+  }
+  :where(.dark) .bg-\[\#F7F9F7\],
+  :where(.dark) .bg-\[\#FAFBFA\],
+  :where(.dark) .bg-\[\#F8FAF9\] {
+    background-color: #15241E;
+  }
+  :where(.dark) .bg-\[\#F1F5F2\],
+  :where(.dark) .bg-\[\#EEF2EF\],
+  :where(.dark) .bg-\[\#E7ECE8\],
+  :where(.dark) .bg-\[\#F2F5F3\] {
+    background-color: #1A2B24;
+  }
+  :where(.dark) .bg-\[\#F3F8F5\],
+  :where(.dark) .bg-\[\#F2F8F5\],
+  :where(.dark) .bg-\[\#F3F9F6\],
+  :where(.dark) .bg-\[\#F4F9F6\],
+  :where(.dark) .bg-\[\#ECF5F0\],
+  :where(.dark) .bg-\[\#E4F2EC\] {
+    background-color: #132C23;
+  }
+  :where(.dark) .bg-\[\#FDECEC\] {
+    background-color: #2B1517;
+  }
+
+  :where(.dark) .border-\[\#DCE3DE\],
+  :where(.dark) .border-\[\#E2E8E4\],
+  :where(.dark) .border-\[\#D4DDD7\],
+  :where(.dark) .border-\[\#E6ECE8\],
+  :where(.dark) .border-\[\#E7ECE8\],
+  :where(.dark) .border-\[\#CBD6CE\],
+  :where(.dark) .border-\[\#DCE8E1\] {
+    border-color: #23372F;
+  }
+  :where(.dark) .border-\[\#EEF2EF\],
+  :where(.dark) .border-\[\#F1F5F2\] {
+    border-color: #1B2D26;
+  }
+  :where(.dark) .border-\[\#F2B5B5\] {
+    border-color: #6E252A;
+  }
+
+  :where(.dark) .divide-\[\#EEF2EF\] > :not(:last-child),
+  :where(.dark) .divide-\[\#E2E8E4\] > :not(:last-child) {
+    border-color: #1D3028;
+  }
+
+  :where(.dark) .text-\[\#13231D\],
+  :where(.dark) .text-\[\#243831\],
+  :where(.dark) .text-\[\#2D4039\],
+  :where(.dark) .text-\[\#2A3D36\],
+  :where(.dark) .text-\[\#354941\] {
+    color: #ECF4F0;
+  }
+  :where(.dark) .text-\[\#3F534C\],
+  :where(.dark) .text-\[\#4A5D55\],
+  :where(.dark) .text-\[\#546860\] {
+    color: #A9C0B5;
+  }
+  :where(.dark) .text-\[\#5E726A\],
+  :where(.dark) .text-\[\#6B7E76\],
+  :where(.dark) .text-\[\#7A8C85\],
+  :where(.dark) .text-\[\#8A9D95\] {
+    color: #7F9A8E;
+  }
+  :where(.dark) .text-\[\#165B43\],
+  :where(.dark) .text-\[\#156A3C\] {
+    color: #4ADE80;
+  }
+  :where(.dark) .text-\[\#B53D0A\] {
+    color: #FB923C;
+  }
+  :where(.dark) .text-\[\#B91C1C\],
+  :where(.dark) .text-\[\#991B1B\] {
+    color: #FCA5A5;
+  }
+
+  :where(.dark) .hover\:bg-\[\#F3F8F5\]:hover,
+  :where(.dark) .hover\:bg-\[\#F2F8F5\]:hover,
+  :where(.dark) .hover\:bg-\[\#F2F5F3\]:hover,
+  :where(.dark) .hover\:bg-\[\#F4F8F6\]:hover,
+  :where(.dark) .hover\:bg-\[\#F2F7F4\]:hover,
+  :where(.dark) .hover\:bg-\[\#ECF5F0\]:hover,
+  :where(.dark) .hover\:bg-\[\#E4F2EC\]:hover {
+    background-color: #1D332B;
+  }
+  :where(.dark) .hover\:bg-\[\#FDECEC\]:hover {
+    background-color: #3B1A1D;
+  }
+  :where(.dark) .hover\:text-\[\#13231D\]:hover {
+    color: #FFFFFF;
+  }
+  :where(.dark) .focus\:bg-white:focus {
+    background-color: #14221C;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BreatheWise AI — Intelligent Air Quality &amp; Winter Smog Assistant</title>
+    <meta name="description" content="Intelligent air quality, winter smog protection, indoor air optimization, and sustainable lifestyle assistant for families and communities." />
+    <meta property="og:title" content="BreatheWise AI — Intelligent Air Quality &amp; Winter Smog Assistant" />
+    <meta property="og:description" content="Convert real-world air quality data into safer daily routines, healthier indoor air, and measurable sustainability impact." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        try {
+          var pref = localStorage.getItem('breathewise_theme_preference') || 'system';
+          var isDark = pref === 'dark' || (pref !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var root = document.documentElement;
+          root.classList.toggle('dark', isDark);
+          root.dataset.theme = isDark ? 'dark' : 'light';
+          root.dataset.themePreference = pref;
+          root.style.colorScheme = isDark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[#F4F7F5] text-[#11221C] antialiased selection:bg-[#165B43]/15 selection:text-[#112A22] dark:bg-[#0A110E] dark:text-[#ECF4F0] dark:selection:bg-[#34D399]/25 dark:selection:text-[#ECF4F0]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
